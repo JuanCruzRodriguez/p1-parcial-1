@@ -6,8 +6,21 @@ let discos = [];
 fetch('discos.json')
     .then(response => response.json())
     .then(data => {
-    discos = data;
-    console.log('Discos cargados:', discos);
+     // Recorrer cada disco en el JSON y agregarlo a la lista de discos
+    data.forEach(discoData => {
+        let disco = new Disco(discoData.nombre, discoData.autor, discoData.portada, discoData.codigo);
+
+        // Agregar las pistas al disco
+        discoData.pistas.forEach(pistaData => {
+            let pista = new Pista(pistaData.nombre, pistaData.duracion);
+            disco.agregarPista(pista);
+        });
+
+        discos.push(disco);
+    });
+
+    alert("Se han cargado los discos desde el archivo JSON.");
+    mostrar(); // Mostrar los discos una vez cargados
     })
     .catch(error => console.error('Error al cargar los discos:', error));
 
