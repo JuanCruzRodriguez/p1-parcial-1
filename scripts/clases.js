@@ -1,3 +1,4 @@
+// Clase Pista
 class Pista {
     constructor(nombre, duracion) {
         this.nombre = nombre;
@@ -5,6 +6,7 @@ class Pista {
     }
 }
 
+//Clase Disco
 class Disco {
     constructor(nombre, autor, portada, codigo) {
         this.nombre = nombre;

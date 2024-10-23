@@ -6,11 +6,11 @@ let discos = [];
 fetch('discos.json')
     .then(response => response.json())
     .then(data => {
-     // Recorrer cada disco en el JSON y agregarlo a la lista de discos
+     // Se recorre cada disco en el JSON y se agrega a la lista de discos
     data.forEach(discoData => {
         let disco = new Disco(discoData.nombre, discoData.autor, discoData.portada, discoData.codigo);
 
-        // Agregar las pistas al disco
+        // Se agregan las pistas al disco
         discoData.pistas.forEach(pistaData => {
             let pista = new Pista(pistaData.nombre, pistaData.duracion);
             disco.agregarPista(pista);
@@ -19,11 +19,13 @@ fetch('discos.json')
         discos.push(disco);
     });
 
-    alert("Se han cargado los discos desde el archivo JSON.");
-    mostrar(); // Mostrar los discos una vez cargados
+    console.log("Se han cargado los discos desde el JSON");
     })
+
     .catch(error => console.error('Error al cargar los discos:', error));
 
+
+// Función cargar
 function cargar() {
     let nombre = prompt("Ingrese el nombre del disco:");
     if (!validarCampo(nombre, "El nombre del disco no puede estar vacío.")) return;
@@ -61,8 +63,9 @@ function cargar() {
     alert("Se ha cargado el disco.");
 }
 
+
+// Función mostrar
 function mostrar() {
-    
     // Contador de discos cargados
     let contador = document.getElementById('contador');
     if (discos.length === 0) {
@@ -98,7 +101,7 @@ function mostrar() {
             let segundos = pista.duracion % 60;
             let tiempo = `${minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
 
-            // Resaltar si dura más de 3 minutos
+            // Se resalta la pista si dura más de 3 minutos
             if (pista.duracion > 180) {
                 pistaItem.classList.add('pista-larga');
             }
