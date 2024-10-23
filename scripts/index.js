@@ -8,7 +8,7 @@ fetch('discos.json')
     .then(data => {
      // Se recorre cada disco en el JSON y se agrega a la lista de discos
     data.forEach(discoData => {
-        let disco = new Disco(discoData.nombre, discoData.autor, discoData.portada, discoData.codigo);
+        let disco = new Disco(discoData.nombre, discoData.artista, discoData.id, discoData.portada);
 
         // Se agregan las pistas al disco
         discoData.pistas.forEach(pistaData => {
