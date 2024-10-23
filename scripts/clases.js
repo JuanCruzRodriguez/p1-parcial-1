@@ -8,11 +8,11 @@ class Pista {
 
 //Clase Disco
 class Disco {
-    constructor(nombre, autor, portada, codigo) {
+    constructor(nombre, artista, portada, id) {
         this.nombre = nombre;
-        this.autor = autor;
+        this.autor = artista;
         this.portada = portada;
-        this.codigo = codigo;
+        this.codigo = id;
         this.pistas = [];
     }
 
