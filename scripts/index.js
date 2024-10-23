@@ -30,18 +30,18 @@ function cargar() {
     let nombre = prompt("Ingrese el nombre del disco:");
     if (!validarCampo(nombre, "El nombre del disco no puede estar vacío.")) return;
 
-    let autor = prompt("Ingrese el autor o banda:");
-    if (!validarCampo(autor, "El nombre del autor o banda no puede estar vacío.")) return;
+    let artista = prompt("Ingrese el autor o banda:");
+    if (!validarCampo(artista, "El nombre del autor o banda no puede estar vacío.")) return;
 
-    let codigo;
+    let id;
     do {
-        codigo = parseInt(prompt("Ingrese el código único del disco (entre 1 y 999):"));
-    } while (!validarCodigo(codigo, discos));
+        id = parseInt(prompt("Ingrese el código único del disco (entre 1 y 999):"));
+    } while (!validarCodigo(id, discos));
 
     let portada = prompt("Ingrese el link de la portada:");
     if (!validarCampo(portada, "El link de la portada no puede estar vacío.")) return;
 
-    let disco = new Disco(nombre, autor, codigo, portada);
+    let disco = new Disco(nombre, artista, id, portada);
 
     let continuar;
     do {
@@ -85,8 +85,8 @@ function mostrar() {
         discoDiv.innerHTML = `
             <img src="${disco.portada}" alt="Portada de ${disco.nombre}" width="100">
             <h2>${disco.nombre}</h2>
-            <h3>Autor: ${disco.autor}</h3>
-            <h3>Codigo: ${disco.codigo}</h3>
+            <h3>Autor: ${disco.artista}</h3>
+            <h3>Codigo: ${disco.id}</h3>
             <h3>Duración total: ${disco.formatearDuracion(disco.duracionTotal())}</h3>
             <h3>Promedio: ${disco.formatearDuracion(disco.duracionPromedio())}</h3>
             <h3>Pista más larga: ${disco.pistaMasLarga().nombre}</h3>
