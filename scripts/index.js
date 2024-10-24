@@ -87,6 +87,7 @@ function mostrar() {
             <h2>${disco.nombre}</h2>
             <h3>Autor: ${disco.artista}</h3>
             <h3>Codigo: ${disco.id}</h3>
+            <h3>Cantidad de pistas: ${disco.pistas.length}</h3>
             <h3>Duración total: ${disco.formatearDuracion(disco.duracionTotal())}</h3>
             <h3>Promedio: ${disco.formatearDuracion(disco.duracionPromedio())}</h3>
             <h3>Pista más larga: ${disco.pistaMasLarga().nombre}</h3>
