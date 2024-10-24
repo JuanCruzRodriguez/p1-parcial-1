@@ -1,6 +1,6 @@
 // Validar código único entre 1 y 999
-function validarCodigo(codigo, discos) {
-    if (isNaN(codigo) || codigo < 1 || codigo > 999 || discos.some(disco => disco.codigo === codigo)) {
+function validarCodigo(id, discos) {
+    if (isNaN(id) || id < 1 || id > 999 || discos.some(disco => disco.id === id)) {
         alert("El código debe ser un número entre 1 y 999 y no puede estar repetido.");
         return false;
     }
