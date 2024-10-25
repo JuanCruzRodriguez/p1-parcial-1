@@ -27,26 +27,34 @@ fetch('discos.json')
 
 // Función cargar
 function cargar() {
-    let nombre = prompt("Ingrese el nombre del disco:");
-    if (!validarCampo(nombre, "El nombre del disco no puede estar vacío.")) return;
+    let nombre;
+    do {
+        nombre = prompt("Ingrese el nombre del disco:");
+    } while (!validarCampo(nombre, "El nombre del disco no puede estar vacío."));
 
-    let artista = prompt("Ingrese el autor o banda:");
-    if (!validarCampo(artista, "El nombre del autor o banda no puede estar vacío.")) return;
+    let artista;
+    do {
+        artista = prompt("Ingrese el autor o banda:");
+    } while (!validarCampo(artista, "El nombre del autor o banda no puede estar vacío."));
 
     let id;
     do {
         id = parseInt(prompt("Ingrese el código único del disco (entre 1 y 999):"));
     } while (!validarCodigo(id, discos));
 
-    let portada = prompt("Ingrese el link de la portada:");
-    if (!validarCampo(portada, "El link de la portada no puede estar vacío.")) return;
+    let portada;
+    do {
+        portada = prompt("Ingrese el link de la portada:");
+    } while (!validarCampo(portada, "El link de la portada no puede estar vacío."));
 
     let disco = new Disco(nombre, artista, id, portada);
 
     let continuar;
     do {
-        let nombrePista = prompt("Ingrese el nombre de la pista:");
-        if (!validarCampo(nombrePista, "El nombre de la pista no puede estar vacío.")) return;
+        let nombrePista;
+        do {
+            nombrePista = prompt("Ingrese el nombre de la pista:");
+        } while (!validarCampo(nombrePista, "El nombre de la pista no puede estar vacío."));
 
         let duracion;
         do {
@@ -62,6 +70,7 @@ function cargar() {
     discos.push(disco);
     alert("Se ha cargado el disco.");
 }
+
 
 
 // Función mostrar
