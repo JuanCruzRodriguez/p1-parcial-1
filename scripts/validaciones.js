@@ -18,9 +18,9 @@ function validarDuracion(duracion) {
 
 // Validar que los campos no estén vacíos
 function validarCampo(campo, mensaje) {
-    if (!campo) {
+    while (!campo || campo.trim() === '') {
         alert(mensaje);
-        return false;
+        campo = prompt(mensaje);
     }
-    return true;
+    return campo;
 }
